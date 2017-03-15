@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import CardList from "../components/CardList";
 import { Button, Icon, Grid, Divider, Segment } from "semantic-ui-react";
 import PopupBtn from "../components/PopupBtn";
@@ -11,7 +11,7 @@ import { connect } from "react-redux";
   }
 })
 
-export default class Dashboard extends React.Component {
+export default class Dashboard extends Component {
 
   componentWillMount() {
     this.props.dispatch(fetchCurrentScore())
