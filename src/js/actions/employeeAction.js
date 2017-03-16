@@ -1,9 +1,10 @@
-import axios from "axios"
+import axios from "axios";
+import * as globalConstants from '../constants/config';
 
 export function fetchEmployeesList() {
 
   return function(dispatch) {
-    axios.get("https://bxconnectdev.herokuapp.com:443/api/employee/list/",
+    axios.get(`${globalConstants.SERVER_BASE_URL}/employee/list/`,
   {
     headers: {"Authorization": "token " + localStorage.getItem("token")}
   })
