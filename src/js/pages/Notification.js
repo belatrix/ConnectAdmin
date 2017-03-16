@@ -1,7 +1,7 @@
-import React from "react";
-import ColumnList from "../components/ColumnList"
-import { Input, Menu, Segment } from 'semantic-ui-react'
-import { fetchEmployeesList } from "../actions/employeeAction"
+import React, { Component } from "react";
+import ColumnList from "../components/ColumnList";
+import { Input, Menu, Segment } from 'semantic-ui-react';
+import { fetchEmployeesList } from "../actions/employeeAction";
 import { connect } from "react-redux";
 
 @connect((store) => {
@@ -10,7 +10,7 @@ import { connect } from "react-redux";
   }
 })
 
-export default class Notification extends React.Component {
+export default class Notification extends Component {
 
   state = { activeItem: 'Employee' }
 
@@ -22,8 +22,8 @@ export default class Notification extends React.Component {
 
   render () {
 
-    const { activeItem } = this.state
-    const { list } = this.props.employee 
+    const { activeItem } = this.state;
+    const { list } = this.props.employee;
     console.log('list', list);
     return (
       <div class="child-container">

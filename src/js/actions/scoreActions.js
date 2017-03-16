@@ -3,7 +3,7 @@ import axios from "axios"
 export function fetchCurrentScore() {
 
   return function(dispatch) {
-    axios.get("https://bxconnect.herokuapp.com:443/api/admin/employee/top/current_month_score/?quantity=10",
+    axios.get("https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/current_month_score/?quantity=10",
   {
     headers: {"Authorization": "token " + localStorage.getItem("token")}
   })
@@ -19,7 +19,7 @@ export function fetchCurrentScore() {
 export function fetchLastMonthScore() {
 
   return function(dispatch) {
-    axios.get("https://bxconnect.herokuapp.com:443/api/admin/employee/top/last_month_score/?quantity=10",
+    axios.get("https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/last_month_score/?quantity=10",
   {
     headers: {"Authorization": "token " + localStorage.getItem("token")}
   })
@@ -35,7 +35,7 @@ export function fetchLastMonthScore() {
 export function fetchTotalScore() {
 
   return function(dispatch) {
-    axios.get("https://bxconnect.herokuapp.com:443/api/admin/employee/top/total_score/?quantity=10",
+    axios.get("https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/total_score/?quantity=10",
   {
     headers: {"Authorization": "token " + localStorage.getItem("token")}
   })

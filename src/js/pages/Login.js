@@ -1,7 +1,7 @@
-import React from 'react'
-import { Grid, Image, Button, Checkbox, Form } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Grid, Image, Button, Checkbox, Form } from 'semantic-ui-react';
 
-import { getAuth } from "../actions/authActions"
+import { getAuth } from "../actions/authActions";
 
 import { connect } from "react-redux";
 
@@ -11,7 +11,7 @@ import { connect } from "react-redux";
   }
 })
 
-export default class Login extends React.Component {
+export default class Login extends Component {
 
   constructor(props) {
     super(props);
@@ -66,19 +66,23 @@ export default class Login extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
                 <label>User Name</label>
-                <input placeholder='User Name'
+                <input
+                  placeholder='User Name'
                   name="username"
                   value={this.state.username}
                   onChange={this.handleName}
-                  type="text" />
+                  type="text"
+                />
               </Form.Field>
               <Form.Field>
                 <label>Password</label>
-                <input placeholder='Password'
+                <input
+                  placeholder='Password'
                   name='password'
                   value={this.state.password}
                   onChange={this.handlePassword}
-                  type='password' />
+                  type='password'
+                />
               </Form.Field>
               <Button type='submit'>Login</Button>
             </Form>

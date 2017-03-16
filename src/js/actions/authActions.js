@@ -5,7 +5,7 @@ export function getAuth(login) {
   console.log(login.props.router)
 
   return function(dispatch) {
-    axios.post("https://bxconnect.herokuapp.com:443/api/employee/authenticate/", {
+    axios.post("https://bxconnectdev.herokuapp.com:443/api/employee/authenticate/", {
       username: login.state.username,
       password: login.state.password
     })

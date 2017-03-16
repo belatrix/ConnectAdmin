@@ -3,7 +3,7 @@ import axios from "axios"
 export function fetchEmployeesList() {
 
   return function(dispatch) {
-    axios.get("https://bxconnect.herokuapp.com:443/api/employee/list/",
+    axios.get("https://bxconnectdev.herokuapp.com:443/api/employee/list/",
   {
     headers: {"Authorization": "token " + localStorage.getItem("token")}
   })
