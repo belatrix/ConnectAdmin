@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Grid, Image, Button, Checkbox, Form } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Grid, Image, Button, Checkbox, Form } from 'semantic-ui-react';
 
-import { getAuth } from "../actions/authActions"
+import { getAuth } from "../actions/authActions";
 
 import { connect } from "react-redux";
 
