@@ -1,7 +1,8 @@
+import * as types from '../constants/actionTypes'
 
 export function fetchUser() {
   return {
-      type: "FETCH_USER_FULFILLED",
+      type: types.FETCH_USER_FULFILLED,
       payload: {
         name: "Estefano"
       }
