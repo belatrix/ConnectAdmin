@@ -1,17 +1,13 @@
-import axios from "axios"
+import axios from 'axios'
+import actionHelper from '../utils/actionsHelper'
+import * as types from '../constants/actionTypes'
 
 export function fetchEmployeesList() {
-
   return function(dispatch) {
-    axios.get("https://bxconnectdev.herokuapp.com:443/api/employee/list/",
-  {
-    headers: {"Authorization": "token " + localStorage.getItem("token")}
-  })
-    .then((response) => {
-      dispatch({type: "FETCH_LIST_EMPLOYEES_FULFILLED", payload: response.data});
-    }).catch((error) => {
-      dispatch({type: "FETCH_LIST_EMPLOYEES_REJECTED", payload: error.data})
-    })
+    actionHelper.dispatchGet(
+        dispatch,
+        "https://bxconnectdev.herokuapp.com:443/api/employee/list/",
+        types.FETCH_LIST_EMPLOYEES_FULFILLED,
+        types.FETCH_LIST_EMPLOYEES_REJECTED);
   }
-
 }
