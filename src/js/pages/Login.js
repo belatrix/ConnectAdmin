@@ -1,107 +1,85 @@
 import React, { Component } from 'react';
-import { Grid, Image, Button, Checkbox, Form } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Grid, Image, Button, Form } from 'semantic-ui-react';
 
-import { getAuth } from "../actions/authActions";
+import getAuth from '../actions/authActions';
 
-import { connect } from "react-redux";
-
-@connect((store) => {
-  return {
-    data: store.auth
-  }
-})
-
+@connect(state => ({
+  data: state.auth,
+}))
 export default class Login extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       username: 'test',
-      password: 'belatrix'
-    }
-    this.handleName = this.handleName.bind(this);
-    this.handlePassword = this.handlePassword.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      password: 'belatrix',
+    };
   }
 
+  handleName = event => this.setState({ username: event.target.value });
 
-  handleName(event) {
-    this.setState({
-      username: event.target.value
-    });
-  }
+  handlePassword = event => this.setState({ password: event.target.value });
 
-  handlePassword(event) {
-    this.setState({
-      password: event.target.value
-    });
-  }
-
-  handleSubmit(event) {
-    this.props.dispatch(getAuth(this))
+  handleSubmit = (event) => {
+    this.props.dispatch(getAuth(this));
     event.preventDefault();
   }
 
-  render () {
-
+  render() {
     return (
-      <Grid divided='vertically'>
+      <Grid divided="vertically">
 
         <Grid.Row columns={3}>
-          <Grid.Column>
-          </Grid.Column>
+          <Grid.Column />
           <Grid.Column>
             <br />
-            <Image src='./img/logo.webp'  size='tiny' centered />
+            <Image src="./img/logo.webp" size="tiny" centered />
           </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
+          <Grid.Column />
         </Grid.Row>
 
         <Grid.Row columns={3}>
-          <Grid.Column>
-          </Grid.Column>
+          <Grid.Column />
           <Grid.Column>
 
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
-                <label>User Name</label>
+                <label htmlFor="username">User Name</label>
                 <input
-                  placeholder='User Name'
+                  placeholder="User Name"
                   name="username"
+                  id="firstName"
                   value={this.state.username}
                   onChange={this.handleName}
                   type="text"
                 />
               </Form.Field>
               <Form.Field>
-                <label>Password</label>
+                <label htmlFor="password">Password</label>
                 <input
-                  placeholder='Password'
-                  name='password'
+                  placeholder="Password"
+                  name="password"
+                  id="password"
                   value={this.state.password}
                   onChange={this.handlePassword}
-                  type='password'
+                  type="password"
                 />
               </Form.Field>
-              <Button type='submit'>Login</Button>
+              <Button type="submit">Login</Button>
             </Form>
 
           </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
+          <Grid.Column />
         </Grid.Row>
 
         <Grid.Row columns={3}>
-          <Grid.Column>
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
-          <Grid.Column>
-          </Grid.Column>
+          <Grid.Column />
+          <Grid.Column />
+          <Grid.Column />
         </Grid.Row>
 
       </Grid>
-    )
+    );
   }
 }

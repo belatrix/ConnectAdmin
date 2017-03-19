@@ -1,26 +1,21 @@
-import React, { Component } from "react";
-import CardList from "../components/CardList";
-import { Button, Icon, Grid, Divider, Segment } from "semantic-ui-react";
-import PopupBtn from "../components/PopupBtn";
-import { fetchCurrentScore, fetchLastMonthScore, fetchTotalScore } from "../actions/scoreActions"
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Grid, Segment } from 'semantic-ui-react';
+import CardList from '../components/CardList';
+import PopupBtn from '../components/PopupBtn';
+import { fetchCurrentScore, fetchLastMonthScore, fetchTotalScore } from '../actions/scoreActions';
 
-@connect((store) => {
-  return {
-    data: store.score
-  }
-})
-
+@connect(state => ({
+  data: state.score,
+}))
 export default class Dashboard extends Component {
-
   componentWillMount() {
-    this.props.dispatch(fetchCurrentScore())
-    this.props.dispatch(fetchLastMonthScore())
-    this.props.dispatch(fetchTotalScore())
+    this.props.dispatch(fetchCurrentScore());
+    this.props.dispatch(fetchLastMonthScore());
+    this.props.dispatch(fetchTotalScore());
   }
 
-  render () {
-
+  render() {
     const { currentMonth, lastMonth, total } = this.props.data;
 
     return (
@@ -29,12 +24,12 @@ export default class Dashboard extends Component {
 
         <Segment>
           <Grid stackable columns={3}>
-              <PopupBtn href="#/notification" icon="send" content="Send notifications" />
-              <PopupBtn href="#/ranking" icon="bookmark" content="Give badges" />
-              <PopupBtn href="#/ranking" icon="group" content="Recommend groups" />
-              <PopupBtn href="#/ranking" icon="calendar plus" content="Create events" />
-              <PopupBtn href="#/ranking" icon="plus circle" content="Create badges" />
-              <PopupBtn href="#/ranking" icon="tags" content="Create tags" />
+            <PopupBtn href="#/notification" icon="send" content="Send notifications" />
+            <PopupBtn href="#/ranking" icon="bookmark" content="Give badges" />
+            <PopupBtn href="#/ranking" icon="group" content="Recommend groups" />
+            <PopupBtn href="#/ranking" icon="calendar plus" content="Create events" />
+            <PopupBtn href="#/ranking" icon="plus circle" content="Create badges" />
+            <PopupBtn href="#/ranking" icon="tags" content="Create tags" />
           </Grid>
         </Segment>
 
@@ -53,6 +48,6 @@ export default class Dashboard extends Component {
         </Grid>
 
       </div>
-    )
+    );
   }
 }
