@@ -1,6 +1,7 @@
 # Generated directories
 node_modules/
 bower_components/
+build/
 *.map
 
 # Mac OS X hidden files

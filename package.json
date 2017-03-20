@@ -1,23 +1,13 @@
 {
   "name": "ConnectAdmin",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/belatrix/ConnectAdmin.git",
-  "author": "Estefano Castañeda <mixc21@gmail.com>",
+  "author": "Connect Team",
   "license": "MIT",
   "dependencies": {
     "all": "^0.0.0",
     "axios": "^0.15.3",
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-react-html-attrs": "^2.0.0",
-    "babel-plugin-transform-class-properties": "^6.22.0",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-es2016": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
-    "babel-preset-stage-0": "^6.22.0",
     "history": "1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -27,13 +17,68 @@
     "redux-logger": "^2.8.1",
     "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0",
-    "semantic-ui-react": "^0.64.3",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.17.1"
+    "semantic-ui-react": "^0.64.3"
   },
   "scripts": {
-    "dev": "webpack-dev-server --content-base src --inline --hot",
-    "postinstall": "webpack-dev-server --content-base src --inline --hot"
+    "start": "webpack-dev-server",
+    "lint": "eslint src",
+    "build": "NODE_ENV=production webpack -p --progress && cp src/index.html build/index.html && cp -R src/css/lib build/css && cp -R src/img build/img"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.7.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-react-html-attrs": "^2.0.0",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2016": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "css-loader": "0.26.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2 || ^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "extract-text-webpack-plugin": "1.0.1",
+    "node-sass": "^4.5.0",
+    "postcss-loader": "1.2.2",
+    "react-hot-loader": "^1.3.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+      "react/no-unknown-property": [
+        2,
+        {
+          "ignore": [
+            "class",
+            "for"
+          ]
+        }
+      ],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/prop-types": [
+        0
+      ]
+    }
   }
 }
