@@ -1,4 +1,5 @@
 import { dispatchPost } from '../utils/actionsHelper';
+import { FETCH_AUTH_FULFILLED, FETCH_AUTH_REJECTED } from '../constants/actionTypes';
 
 export default function getAuth(login) {
   return dispatch => dispatchPost(
@@ -8,8 +9,8 @@ export default function getAuth(login) {
       username: login.state.username,
       password: login.state.password,
     },
-      'FETCH_AUTH_FULFILLED',
-      'FETCH_AUTH_REJECTED',
+      FETCH_AUTH_FULFILLED,
+      FETCH_AUTH_REJECTED,
       (response) => {
         if (response.data.token) {
           localStorage.setItem('token', response.data.token);
