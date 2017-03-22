@@ -1,11 +1,12 @@
 import { dispatchGet } from '../utils/actionsHelper';
 import { FETCH_LIST_EMPLOYEES } from '../constants/actionTypes';
+import * as globalConstants from '../constants/config';
 
 export default function fetchEmployeesList() {
   return dispatch =>
     dispatchGet(
         dispatch,
         FETCH_LIST_EMPLOYEES,
-        'https://bxconnectdev.herokuapp.com:443/api/employee/list/',
+        `${globalConstants.SERVER_BASE_URL}/employee/list/`,
         );
 }
