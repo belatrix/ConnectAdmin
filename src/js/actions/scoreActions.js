@@ -1,28 +1,32 @@
 import axios from 'axios';
+import {dispatchGet} from '../utils/actionsHelper'
 
 export function fetchCurrentScore() {
   return function (dispatch) {
-    dispatch({
-      type: 'FETCH_CURRENT',
-      payload: axios.get('https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/current_month_score/?quantity=10', {headers: { Authorization: `token ${localStorage.getItem('token')}` }})
-    });
-  };
+    dispatchGet(
+        dispatch,
+        'FETCH_CURRENT',
+        'https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/current_month_score/?quantity=10'
+        );
+  }
 }
 
 export function fetchLastMonthScore() {
   return function (dispatch) {
-    dispatch({
-      type: 'FETCH_LAST',
-      payload: axios.get('https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/last_month_score/?quantity=10', {headers: { Authorization: `token ${localStorage.getItem('token')}` }})
-    });
-  };
+    return dispatchGet(
+        dispatch,
+        'FETCH_LAST',
+        'https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/last_month_score/?quantity=10'
+        );
+  }
 }
 
 export function fetchTotalScore() {
   return function (dispatch) {
-    dispatch({
-      type: 'FETCH_TOTAL',
-      payload: axios.get('https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/total_score/?quantity=10', {headers: { Authorization: `token ${localStorage.getItem('token')}` }})
-    });
-  };
+    return dispatchGet(
+        dispatch,
+        'FETCH_TOTAL',
+        'https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/total_score/?quantity=10'
+        );
+  }
 }

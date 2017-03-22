@@ -1,18 +1,22 @@
 import axios from 'axios';
+import {dispatchPost} from '../utils/actionsHelper'
 
 export default function getAuth(login) {
-  return function (dispatch) {
-    axios.post('https://bxconnectdev.herokuapp.com:443/api/employee/authenticate/', {
-      username: login.state.username,
-      password: login.state.password,
-    })
-    .then((response) => {
-      dispatch({ type: 'FETCH_AUTH_FULFILLED', payload: response.data });
-
-      if (response.data.token) {
-        localStorage.setItem('token', response.data.token);
-        login.props.router.go('/dashboard');
-      }
-    }).catch(error => dispatch({ type: 'FETCH_AUTH_REJECTED', payload: error.data }));
-  };
+  return function(dispatch) {
+    dispatchPost(
+        dispatch,
+        "https://bxconnectdev.herokuapp.com:443/api/employee/authenticate/",
+        {
+          username: login.state.username,
+          password: login.state.password
+        },
+        'FETCH_AUTH_FULFILLED',
+        'FETCH_AUTH_REJECTED',
+        (response) => {
+          if (response.data.token) {
+            localStorage.setItem('token', response.data.token);
+            login.props.router.go('/dashboard');
+          }
+    });
+  }
 }
