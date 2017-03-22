@@ -66,11 +66,10 @@ Choose the instructions according to your OS in the next URL
 ```bash
 yarn Install
 ```
-4.Run the yarn comand to open the project 
+4.Run the yarn comand to open the project
 
 ```bash
 yarn run dev
 ```
 
-
-
+test
