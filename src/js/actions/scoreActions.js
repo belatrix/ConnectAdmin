@@ -1,9 +1,10 @@
 import { dispatchGet } from '../utils/actionsHelper';
+import { FETCH_CURRENT, FETCH_LAST, FETCH_TOTAL } from '../constants/actionTypes';
 
 export function fetchCurrentScore() {
   return dispatch => dispatchGet(
     dispatch,
-    'FETCH_CURRENT',
+    FETCH_CURRENT,
     'https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/current_month_score/?quantity=10',
     );
 }
@@ -11,7 +12,7 @@ export function fetchCurrentScore() {
 export function fetchLastMonthScore() {
   return dispatch => dispatchGet(
     dispatch,
-    'FETCH_LAST',
+    FETCH_LAST,
     'https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/last_month_score/?quantity=10',
     );
 }
@@ -19,7 +20,7 @@ export function fetchLastMonthScore() {
 export function fetchTotalScore() {
   return dispatch => dispatchGet(
     dispatch,
-    'FETCH_TOTAL',
+    FETCH_TOTAL,
     'https://bxconnectdev.herokuapp.com:443/api/admin/employee/top/total_score/?quantity=10',
     );
 }
