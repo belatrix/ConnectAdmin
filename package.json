@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "lint": "eslint src",
+    "lint": "eslint src --fix",
     "build": "NODE_ENV=production webpack -p --progress && cp src/index.html build/index.html && cp -R src/css/lib build/css && cp -R src/img build/img"
   },
   "devDependencies": {
@@ -57,6 +57,11 @@
   "eslintConfig": {
     "extends": "airbnb",
     "parser": "babel-eslint",
+    "env": {
+            "browser": true,
+            "node": false,
+            "es6": true
+        },
     "rules": {
       "react/no-unknown-property": [
         2,
