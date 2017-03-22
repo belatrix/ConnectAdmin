@@ -1,10 +1,11 @@
 import { dispatchPost } from '../utils/actionsHelper';
 import { FETCH_AUTH_FULFILLED, FETCH_AUTH_REJECTED } from '../constants/actionTypes';
+import * as globalConstants from '../constants/config';
 
 export default function getAuth(login) {
   return dispatch => dispatchPost(
       dispatch,
-        'https://bxconnectdev.herokuapp.com:443/api/employee/authenticate/',
+        `${globalConstants.SERVER_BASE_URL}/employee/authenticate/`,
     {
       username: login.state.username,
       password: login.state.password,
