@@ -11,20 +11,22 @@ The main purpose of this architecture is minify, simplify resources and methods 
 
 This web application has been designed using the nex tools:
 
-- [Semantic UI for ReactJS] (http://react.semantic-ui.com/introduction)
-- [ReactJS] (https://facebook.github.io/react/)
-- [Webpack] (https://webpack.github.io/)
-- [Yarn] (https://yarnpkg.com/lang/en/)
-- [NodeJS] (https://nodejs.org/)
+- [Semantic UI for ReactJS](http://react.semantic-ui.com/introduction)
+- [ReactJS](https://facebook.github.io/react/)
+- [Webpack](https://webpack.github.io/)
+- [Yarn](https://yarnpkg.com/lang/en/)
+- [NodeJS](https://nodejs.org/)
 
 **1. First you need to install following**
 
 (if you have previous knowledge about nodeJS skip to 2nd step)
 
 **Installing Node.js**
- [here] (https://nodejs.org/en/download/) and follow the wizard to installation
+
+[here](https://nodejs.org/en/download/) and follow the wizard to installation
  
- **Learn** about Node.js installation instructions for diferent Operating Systems (https://nodejs.org/en/download/package-manager/)
+ **Learn** about Node.js installation instructions for diferent Operating Systems 
+ [Here](https://nodejs.org/en/download/package-manager/)
 
 2.Installing Yarn
 
