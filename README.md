@@ -22,10 +22,9 @@ This web application has been designed using the nex tools:
 (if you have previous knowledge about nodeJS skip to 2nd step)
 
 **Installing Node.js**
-
 [here](https://nodejs.org/en/download/) and follow the wizard to installation
  
- **Learn about Node.js installation instructions for diferent Operating Systems ** 
+**Learn about Node.js installation instructions for diferent Operating Systems** 
  [Here](https://nodejs.org/en/download/package-manager/)
 
 2.Installing Yarn
