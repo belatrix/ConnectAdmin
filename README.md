@@ -22,7 +22,37 @@ This web application has been designed using the nex tools:
 (if you have previous knowledge about nodeJS skip to 2nd step)
 
 **Installing Node.js**
- [here] (https://nodejs.org/en/download/) and follow the wizard to installation
+
+*Windows*
+> You can download the .exe installer [here] (https://nodejs.org/en/download/) and follow the wizard to installation
+
+*Linux - Ubuntu/Debian*
+
+1.1. Open your terminal and execute the next commands
+```bash
+sudo apt-get update && sudo apt-get install git-core curl build-essential openssl libssl-dev
+```
+1.2. Then cloning the nodeJS repository in a desired location
+```bash
+git clone https://github.com/nodejs/node.git node && cd node
+```
+1.3. If you wish choose a version, but if you want to work with the latest skip this step
+```bash
+git checkout v4.4.3
+```
+1.4- Creating the makefile
+```bash
+./configure
+```
+1.5. Preparing the installation
+```bash
+make
+```
+1.6. Installing
+
+```bash
+sudo make install
+```
 
 2.Installing Yarn
 
