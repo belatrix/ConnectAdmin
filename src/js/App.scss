@@ -1,45 +1,84 @@
 .ui.segment {
-  border-radius: 0;
-  margin: 0;
-  border: none;
-  box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .pushable {
-  position: fixed;
-  height: calc(100% - 73px);;
-  position: fixed !important;
-  width: 100%;
-  overflow: hidden !important;
+    position: fixed;
+    height: calc(100% - 73px);
+    ;
+    position: fixed !important;
+    width: 100%;
+    overflow: hidden !important;
 }
 
 .ui.sidebar.left {
-  position: fixed !important;
-  top: 0;
+    position: fixed !important;
+    top: 0;
 }
 
 .child-container {
-  background: #EEE;
-  position: fixed;
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
+    background: #EEE;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
 }
 
 .ui .segment {
-  background: transparent;
+    background: transparent;
 }
 
 a button.basic {
-  background: white !important;
+    background: white !important;
 }
 
 .ui.segment.pushable {
-  background: #EEE;
+    background: #EEE;
+}
+
+.login-text {
+  text-align: center;
+  color: white !important;
+  font-size: 13px !important;
+}
+
+.login-small-text {
+  text-align: center;
+  color: white !important;
+  font-size: 10px !important;
+}
+
+
+.login-card {
+    padding-right: 2.5px !important;
+    padding-left: 2.5px !important;
+    border: none !important;
+    margin: 0 auto !important;
+}
+
+.login-table {
+    background-color: #4183C4 !important;
+    padding-top: 15px !important;
+}
+
+#imgAvatar{
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 50% !important;
+    background-color: #4183C4 !important;
+    border: 4px solid #fff !important;
+    margin: 0 auto;
+}
+
+.sidebar-custom{
+  width: 200px !important;
 }

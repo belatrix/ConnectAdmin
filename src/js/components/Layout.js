@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import { Sidebar, Segment, Menu, Icon } from 'semantic-ui-react';
+import { Sidebar, Segment, Menu, Icon, Image, Card } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
+
+@connect(state => ({
+  user: state.user,
+}))
 class Layout extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +13,7 @@ class Layout extends Component {
     this.state = {
       visibleLeft: false,
       activeItem: 'Dashboard',
+      avatarJpg: '..//../img/avatar.png',
     };
   }
 
@@ -16,6 +22,9 @@ class Layout extends Component {
 
   render() {
     const { visibleLeft, activeItem } = this.state;
+    const { user } = this.props.user;
+    const { location } = user;
+    const { icon } = location || '';
     return (
       <div>
         <Segment color="orange" inverted>
@@ -28,7 +37,22 @@ class Layout extends Component {
         </Segment>
 
         <Sidebar.Pushable as={Segment}>
-          <Sidebar color="blue" as={Menu} animation="scale down" width="thin" visible={visibleLeft} icon="labeled" vertical inverted>
+          <Sidebar color="blue" as={Menu} animation="scale down" width="thin" visible={visibleLeft} icon="labeled" vertical inverted className="sidebar-custom">
+            <div className="login-text">
+              <Card className="login-table">
+                <Image id="imgAvatar" src={icon} shape="rounded" size="mini" className="login-avatar" />
+                <Card.Content className="login-card">
+                  <Card.Header className="login-text">
+                    {user.first_name} {user.last_name}
+                  </Card.Header>
+                  <Card.Meta className="login-small-text">
+                    {user.email}
+                  </Card.Meta>
+                </Card.Content>
+              </Card>
+
+
+            </div>
             <Menu.Item href="#/" name="Dashboard" active={activeItem === 'Dashboard'} onClick={this.handleItemClick} onMouseUp={this.toggleVisibilityLeft}>
               <Icon name="dashboard" />
               Dashboard

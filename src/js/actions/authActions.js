@@ -15,6 +15,7 @@ export default function getAuth(login) {
       (response) => {
         if (response.data.token) {
           localStorage.setItem('token', response.data.token);
+          localStorage.setItem('id', response.data.user_id);
           login.props.router.go('/dashboard');
         }
       });

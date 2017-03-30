@@ -9,7 +9,6 @@ import Dashboard from './pages/Dashboard';
 import Notification from './pages/Notification';
 import Ranking from './pages/Ranking';
 import Login from './pages/Login';
-
 import './App.scss';
 
 const app = document.getElementById('app');

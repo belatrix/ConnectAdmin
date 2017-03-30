@@ -4,6 +4,7 @@ import { Grid, Segment } from 'semantic-ui-react';
 import CardList from '../components/CardList';
 import PopupBtn from '../components/PopupBtn';
 import { fetchCurrentScore, fetchLastMonthScore, fetchTotalScore } from '../actions/scoreActions';
+import fetchUserInfo from '../actions/userActions';
 
 @connect(state => ({
   data: state.score,
@@ -13,11 +14,11 @@ export default class Dashboard extends Component {
     this.props.dispatch(fetchCurrentScore());
     this.props.dispatch(fetchLastMonthScore());
     this.props.dispatch(fetchTotalScore());
+    this.props.dispatch(fetchUserInfo());
   }
 
   render() {
     const { currentMonth, lastMonth, total } = this.props.data;
-
     return (
       <div class="child-container">
         <h2>Quick Actions</h2>
