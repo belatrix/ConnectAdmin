@@ -11,7 +11,6 @@ const ColumnList = (props) => {
         </List.Content>
       </List.Item>
       ));
-
     return (
       <List animated verticalAlign="middle">
         {ListItems}

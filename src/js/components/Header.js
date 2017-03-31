@@ -13,7 +13,6 @@ export default class Header extends Component {
 
   render() {
     const { activeItem } = this.state;
-
     return (
       <div>{activeItem}</div>
     );

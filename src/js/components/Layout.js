@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Sidebar, Segment, Menu, Icon, Image, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
-
 @connect(state => ({
   user: state.user,
 }))
@@ -50,8 +49,6 @@ class Layout extends Component {
                   </Card.Meta>
                 </Card.Content>
               </Card>
-
-
             </div>
             <Menu.Item href="#/" name="Dashboard" active={activeItem === 'Dashboard'} onClick={this.handleItemClick} onMouseUp={this.toggleVisibilityLeft}>
               <Icon name="dashboard" />

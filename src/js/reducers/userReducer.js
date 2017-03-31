@@ -1,3 +1,5 @@
+import { FETCH_USER_PENDING, FETCH_USER_REJECTED, FETCH_USER_FULFILLED } from '../constants/actionTypes';
+
 export default function reducer(state = {
   user: {
     id: null,
@@ -10,13 +12,11 @@ export default function reducer(state = {
   error: null,
 }, action) {
   switch (action.type) {
-    case 'FETCH_USER_PENDING':
+    case FETCH_USER_PENDING:
       return { ...state, fetching: true };
-
-    case 'FETCH_USER_REJECTED':
+    case FETCH_USER_REJECTED:
       return { ...state, fetching: false, error: action.payload };
-
-    case 'FETCH_USER_FULFILLED':
+    case FETCH_USER_FULFILLED:
       return { ...state, fetching: false, fetched: true, user: action.payload.data };
     default:
       return state;
