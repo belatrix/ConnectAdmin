@@ -8,7 +8,6 @@ import fetchEmployeesList from '../actions/employeeAction';
   employee: state.employee,
 }))
 export default class Notification extends Component {
-
   state = { activeItem: 'Employee' };
 
   componentWillMount() {
@@ -20,11 +19,9 @@ export default class Notification extends Component {
   render() {
     const { activeItem } = this.state;
     const { list } = this.props.employee;
-
     return (
       <div class="child-container">
         <h1>Send a Notification to:</h1>
-
         <Menu attached="top" tabular>
           <Menu.Item name="Employee" active={activeItem === 'Employee'} onClick={this.handleItemClick} />
           <Menu.Item name="Location" active={activeItem === 'Location'} onClick={this.handleItemClick} />
@@ -40,7 +37,6 @@ export default class Notification extends Component {
             </Menu.Item>
           </Menu.Menu>
         </Menu>
-
         <Segment attached="bottom">
           <ColumnList data={list} />
         </Segment>

@@ -40,7 +40,6 @@ export default class Login extends Component {
   render() {
     return (
       <Grid divided="vertically">
-
         <Grid.Row columns={3}>
           <Grid.Column />
           <Grid.Column>
@@ -49,11 +48,9 @@ export default class Login extends Component {
           </Grid.Column>
           <Grid.Column />
         </Grid.Row>
-
         <Grid.Row columns={3}>
           <Grid.Column />
           <Grid.Column>
-
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
                 <label htmlFor="username">User Name</label>
@@ -81,17 +78,14 @@ export default class Login extends Component {
               </Form.Field>
               <Button type="submit">Login</Button>
             </Form>
-
           </Grid.Column>
           <Grid.Column />
         </Grid.Row>
-
         <Grid.Row columns={3}>
           <Grid.Column />
           <Grid.Column />
           <Grid.Column />
         </Grid.Row>
-
       </Grid>
     );
   }

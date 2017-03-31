@@ -1,3 +1,5 @@
+import { FETCH_LIST_EMPLOYEES_PENDING, FETCH_LIST_EMPLOYEES_REJECTED, FETCH_LIST_EMPLOYEES_FULFILLED } from '../constants/actionTypes';
+
 export default function reducer(state = {
   list: {},
   fetching: false,
@@ -5,13 +7,11 @@ export default function reducer(state = {
   error: null,
 }, action) {
   switch (action.type) {
-    case 'FETCH_LIST_EMPLOYEES_PENDING':
+    case FETCH_LIST_EMPLOYEES_PENDING:
       return { ...state, fetching: true };
-
-    case 'FETCH_LIST_EMPLOYEES_REJECTED':
+    case FETCH_LIST_EMPLOYEES_REJECTED:
       return { ...state, fetching: false, error: action.payload };
-
-    case 'FETCH_LIST_EMPLOYEES_FULFILLED':
+    case FETCH_LIST_EMPLOYEES_FULFILLED:
       return { ...state, fetching: false, fetched: true, list: action.payload.data.results };
     default:
       return state;
