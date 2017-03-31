@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Image, Button, Form } from 'semantic-ui-react';
-
 import getAuth from '../actions/authActions';
 
 @connect(state => ({
@@ -14,12 +13,24 @@ export default class Login extends Component {
     this.state = {
       username: 'test',
       password: 'belatrix',
+      id: 1,
     };
   }
 
-  handleName = event => this.setState({ username: event.target.value });
+  componentDidMount() {
+    this.usernameInput.addEventListener('username', this.handleNamePaste);
+    this.passwordInput.addEventListener('paste', this.handlePasswordPaste);
+  }
 
+  componentWillUnmount() {
+    this.usernameInput.removeEventListener('username', this.handleNamePaste);
+    this.passwordInput.removeEventListener('paste', this.handlePasswordPaste);
+  }
+
+  handleName = event => this.setState({ username: event.target.value });
   handlePassword = event => this.setState({ password: event.target.value });
+  handleNamePaste = event => this.setState({ username: event.target.value });
+  handlePasswordPaste = event => this.setState({ password: event.target.value });
 
   handleSubmit = (event) => {
     this.props.dispatch(getAuth(this));
@@ -53,6 +64,7 @@ export default class Login extends Component {
                   value={this.state.username}
                   onChange={this.handleName}
                   type="text"
+                  ref={(input) => { this.usernameInput = input; }}
                 />
               </Form.Field>
               <Form.Field>
@@ -64,6 +76,7 @@ export default class Login extends Component {
                   value={this.state.password}
                   onChange={this.handlePassword}
                   type="password"
+                  ref={(input) => { this.passwordInput = input; }}
                 />
               </Form.Field>
               <Button type="submit">Login</Button>
