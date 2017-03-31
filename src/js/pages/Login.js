@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Image, Button, Form } from 'semantic-ui-react';
+import { Grid, Image, Button, Form, Item } from 'semantic-ui-react';
 import getAuth from '../actions/authActions';
 
 @connect(state => ({
@@ -14,6 +14,7 @@ export default class Login extends Component {
       username: 'test',
       password: 'belatrix',
       id: 1,
+      imgBanner: '..//../img/banner.png'
     };
   }
 
@@ -39,54 +40,58 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Grid divided="vertically">
-        <Grid.Row columns={3}>
-          <Grid.Column />
-          <Grid.Column>
-            <br />
-            <Image src="./img/logo.webp" size="tiny" centered />
-          </Grid.Column>
-          <Grid.Column />
-        </Grid.Row>
-        <Grid.Row columns={3}>
-          <Grid.Column />
-          <Grid.Column>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Field>
-                <label htmlFor="username">User Name</label>
-                <input
-                  placeholder="User Name"
-                  name="username"
-                  id="firstName"
-                  value={this.state.username}
-                  onChange={this.handleName}
-                  type="text"
-                  ref={(input) => { this.usernameInput = input; }}
-                />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor="password">Password</label>
-                <input
-                  placeholder="Password"
-                  name="password"
-                  id="password"
-                  value={this.state.password}
-                  onChange={this.handlePassword}
-                  type="password"
-                  ref={(input) => { this.passwordInput = input; }}
-                />
-              </Form.Field>
-              <Button type="submit">Login</Button>
-            </Form>
-          </Grid.Column>
-          <Grid.Column />
-        </Grid.Row>
-        <Grid.Row columns={3}>
-          <Grid.Column />
-          <Grid.Column />
-          <Grid.Column />
-        </Grid.Row>
-      </Grid>
-    );
+            <Grid divided="vertically">
+              <Grid.Row columns={3}>
+                <Grid.Column />
+                <Grid.Column>
+                  <br />
+                  <Image src="./img/logo.webp" size="tiny" centered />
+                </Grid.Column>
+                <Grid.Column />
+              </Grid.Row>
+              <Grid.Row columns={4}>
+                <Grid.Column />
+                <Grid.Column>
+                  <Item.Image size='medium' src={this.state.imgBanner}>
+                  </Item.Image>
+                </Grid.Column>
+                <Grid.Column>
+                  <Form onSubmit={this.handleSubmit}>
+                    <Form.Field>
+                      <label htmlFor="username">User Name</label>
+                      <input
+                        placeholder="User Name"
+                        name="username"
+                        id="firstName"
+                        value={this.state.username}
+                        onChange={this.handleName}
+                        type="text"
+                        ref={(input) => { this.usernameInput = input; }}
+                      />
+                    </Form.Field>
+                    <Form.Field>
+                      <label htmlFor="password">Password</label>
+                      <input
+                        placeholder="Password"
+                        name="password"
+                        id="password"
+                        value={this.state.password}
+                        onChange={this.handlePassword}
+                        type="password"
+                        ref={(input) => { this.passwordInput = input; }}
+                      />
+                    </Form.Field>
+                    <Button type="submit">Login</Button>
+                  </Form>
+                </Grid.Column>
+                <Grid.Column />
+              </Grid.Row>
+              <Grid.Row columns={3}>
+                <Grid.Column />
+                <Grid.Column />
+                <Grid.Column />
+              </Grid.Row>
+            </Grid>
+   );
   }
 }
